@@ -72,5 +72,25 @@ namespace CodilityLessons
             }
             return -1;
         }
+
+        public int MissingInteger(int[] A)
+        {
+            bool[] ints = new bool[1000001];
+            for(int i = 0; i < A.Length; i++)
+            {
+                if (A[i] > 0)
+                {
+                    ints[A[i]] = true;
+                }
+            }
+
+            for (int i = 1; i < 1000001; i++)
+            {
+                if (!ints[i])
+                    return i;
+            }
+
+            return 1;
+        }
     }
 }

@@ -23,5 +23,16 @@ namespace CodilityLessonsTest
             Assert.AreEqual(-1, lesson.FrogRiverOne(2, new int[] { 2, 2, 2, 2, 2, 2 }));
         }
 
+        [TestMethod]
+        public void MissingIntegerTest()
+        {
+            var lesson = new Lesson4();
+            Assert.AreEqual(6, lesson.MissingInteger(new int[] { 1, 3, 1, 4, 2, 3, 5, 4 }));
+            Assert.AreEqual(1, lesson.MissingInteger(new int[] { 2, 2, 2, 2, 2, 2 }));
+            Assert.AreEqual(5, lesson.MissingInteger(new int[] { 1, 3, 6, 4, 1, 2 }));
+            Assert.AreEqual(4, lesson.MissingInteger(new int[] { 1, 2, 3 }));
+            Assert.AreEqual(1, lesson.MissingInteger(new int[] { -1, -3 }));
+        }
+
     }
 }
