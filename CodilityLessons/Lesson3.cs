@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodilityLessons
 {
@@ -27,6 +24,36 @@ namespace CodilityLessons
                     return i + 1;
             }
             return 0;
+        }
+
+        public int TapeEquilibrium(int[] A)
+        {
+            if (A.Length == 2)
+                return Math.Abs(A[0] - A[1]);
+
+            int[] leftSums = new int[A.Length];
+
+            leftSums[0] = A[0];
+            for (int i = 1; i < A.Length - 1; i++)
+            {
+                leftSums[i] = leftSums[i - 1] + A[i];
+            }
+
+            int[] rightSums = new int[A.Length];
+
+            rightSums[A.Length - 1] = A[A.Length - 1];
+            for (int i = A.Length - 2; i >= 0; i--)
+            {
+                rightSums[i] = rightSums[i + 1] + A[i];
+            }
+
+            int[] differences = new int[A.Length - 1];
+            for (int i = 0; i < differences.Length; i++)
+            {
+                differences[i] = Math.Abs(leftSums[i] - rightSums[i + 1]);
+            }
+
+            return differences.Min();
         }
     }
 }

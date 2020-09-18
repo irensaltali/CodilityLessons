@@ -20,5 +20,13 @@ namespace CodilityLessonsTest
             Assert.AreEqual(4, lesson.PermMissingElem(new int[] { 2, 3, 1, 5 }));
         }
 
+        [TestMethod]
+        public void TapeEquilibriumTest()
+        {
+            var lesson = new Lesson3();
+            Assert.AreEqual(1, lesson.TapeEquilibrium(new int[] { 3, 1, 2, 4, 3 }));
+            Assert.AreEqual(1, lesson.TapeEquilibrium(new int[] { 1,1, 3 }));
+        }
+
     }
 }
