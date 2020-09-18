@@ -34,5 +34,13 @@ namespace CodilityLessonsTest
             Assert.AreEqual(1, lesson.MissingInteger(new int[] { -1, -3 }));
         }
 
+        [TestMethod]
+        public void PermCheckTest()
+        {
+            var lesson = new Lesson4();
+            Assert.AreEqual(1, lesson.PermCheck(new int[] { 4, 1, 3, 2 }));
+            Assert.AreEqual(0, lesson.PermCheck(new int[] { 4, 1, 3 }));
+        }
+
     }
 }

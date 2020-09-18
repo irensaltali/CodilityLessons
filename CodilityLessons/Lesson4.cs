@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodilityLessons
 {
@@ -91,6 +89,13 @@ namespace CodilityLessons
             }
 
             return 1;
+        }
+
+        public int PermCheck(int[] A)
+        {
+            if (A.Length != A.Distinct().Count())
+                return 0;
+            return A.Length == A.Max() ? 1 : 0;
         }
     }
 }
