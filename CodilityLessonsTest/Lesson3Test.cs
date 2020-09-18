@@ -13,5 +13,12 @@ namespace CodilityLessonsTest
             Assert.AreEqual(3, lesson.FrogJmp(10, 85, 30));
         }
 
+        [TestMethod]
+        public void PermMissingElemTest()
+        {
+            var lesson = new Lesson3();
+            Assert.AreEqual(4, lesson.PermMissingElem(new int[] { 2, 3, 1, 5 }));
+        }
+
     }
 }
