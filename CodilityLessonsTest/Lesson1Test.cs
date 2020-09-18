@@ -1,5 +1,4 @@
-﻿using System;
-using CodilityLessons;
+﻿using CodilityLessons;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodilityLessonsTest
