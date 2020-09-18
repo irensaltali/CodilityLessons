@@ -1,4 +1,7 @@
-﻿namespace CodilityLessons
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace CodilityLessons
 {
     public class Lesson2
     {
@@ -29,5 +32,24 @@
             return A;
         }
 
+        public int OddOccurrencesInArray(int[] A)
+        {
+            var odds = new Dictionary<int, bool>();
+
+            foreach(var a in A)
+            {
+                bool o;
+                if(odds.TryGetValue(a, out o))
+                {
+                    odds[a] = !o;
+                }
+                else
+                {
+                    odds.Add(a, true);
+                }
+            }
+
+            return odds.Where(x => x.Value == true).FirstOrDefault().Key;
+        }
     }
 }
