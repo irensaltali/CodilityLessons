@@ -41,5 +41,36 @@ namespace CodilityLessons
 
             return counters;
         }
+
+        public int FrogRiverOne(int X, int[] A)
+        {
+            Dictionary<int,bool> dropedLeaves = new Dictionary<int, bool>();
+
+            for(int i = 0; i < A.Length; i++)
+            {
+                if (A[i] == X)
+                {
+                    while (dropedLeaves.Count != X-1)
+                    {
+                        i++;
+                        if (i == A.Length)
+                            return -1;
+                        if (A[i] != X &&!dropedLeaves.ContainsKey(A[i]))
+                        {
+                            dropedLeaves.Add(A[i], true);
+                        }
+                    }
+                    return i;
+                }
+                else
+                {
+                    if(!dropedLeaves.ContainsKey(A[i]))
+                    {
+                        dropedLeaves.Add(A[i], true);
+                    }
+                }
+            }
+            return -1;
+        }
     }
 }

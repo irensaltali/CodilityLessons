@@ -14,5 +14,14 @@ namespace CodilityLessonsTest
             CollectionAssert.AreEqual(new int[] { 0, 0, 0, 0 }, lesson.MaxCounters(4, new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }));
         }
 
+
+        [TestMethod]
+        public void FrogRiverOneTest()
+        {
+            var lesson = new Lesson4();
+            Assert.AreEqual(6, lesson.FrogRiverOne(5, new int[] { 1, 3, 1, 4, 2, 3, 5, 4 }));
+            Assert.AreEqual(-1, lesson.FrogRiverOne(2, new int[] { 2, 2, 2, 2, 2, 2 }));
+        }
+
     }
 }
