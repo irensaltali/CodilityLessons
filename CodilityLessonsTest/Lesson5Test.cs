@@ -21,9 +21,17 @@ namespace CodilityLessonsTest
         public void GenomicRangeQueryTest()
         {
             var lesson = new Lesson5();
-            CollectionAssert.AreEqual(new int[] { 2, 4, 1 }, lesson.GenomicRangeQuery("CAGCCTA", new int[] { 2,5,0 }, new int[] { 4,5,6 }));
-            CollectionAssert.AreEqual(new int[] { 2, 4, 1 }, lesson.GenomicRangeQuery2("CAGCCTA", new int[] { 2,5,0 }, new int[] { 4,5,6 }));
-            CollectionAssert.AreEqual(new int[] { 2, 4, 1 }, lesson.GenomicRangeQuery3("CAGCCTA", new int[] { 2,5,0 }, new int[] { 4,5,6 }));
+            CollectionAssert.AreEqual(new int[] { 2, 4, 1 }, lesson.GenomicRangeQuery("CAGCCTA", new int[] { 2, 5, 0 }, new int[] { 4, 5, 6 }));
+            CollectionAssert.AreEqual(new int[] { 2, 4, 1 }, lesson.GenomicRangeQuery2("CAGCCTA", new int[] { 2, 5, 0 }, new int[] { 4, 5, 6 }));
+            CollectionAssert.AreEqual(new int[] { 2, 4, 1 }, lesson.GenomicRangeQuery3("CAGCCTA", new int[] { 2, 5, 0 }, new int[] { 4, 5, 6 }));
+        }
+
+        [TestMethod]
+        public void MinAvgTwoSliceTest()
+        {
+            var lesson = new Lesson5();
+            //Assert.AreEqual(0, lesson.MinAvgTwoSlice( new int[] { 4, 5, 6 }));
+            Assert.AreEqual(2, lesson.MinAvgTwoSlice( new int[] { -3, -5, -8, -4, -10}));
         }
 
     }

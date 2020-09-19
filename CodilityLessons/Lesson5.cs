@@ -115,6 +115,45 @@ namespace CodilityLessons
             return r;
         }
 
+        public int MinAvgTwoSlice(int[] A)
+        {
+            int window = 2;
+            int minPosition = -1;
+            double min = int.MaxValue;
+            double currentMin = double.MaxValue;
+            int currentMinPosition = -1;
+
+            while (window<=A.Length)
+            {
+                for (int i = 0; i <= A.Length - window; i++)
+                {
+                    int sum = 0;
+                    for (int j = 0; j < window; j++)
+                    {
+                        sum += A[i + j];
+                    }
+                    
+                    if ((double)sum/window < currentMin)
+                    {
+                        currentMin = (double)sum / window;
+                        currentMinPosition = i;
+                    }
+                }
+
+                if (currentMin < min)
+                {
+                    min = currentMin;
+                    minPosition = currentMinPosition;
+                }
+                else
+                    break;
+
+                window++;
+            }
+
+                return minPosition;
+        }
+
 
         private int NucleotToFactor(char c)
         {
