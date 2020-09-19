@@ -17,7 +17,14 @@ namespace CodilityLessonsTest
         }
 
 
-        
+        [TestMethod]
+        public void GenomicRangeQueryTest()
+        {
+            var lesson = new Lesson5();
+            CollectionAssert.AreEqual(new int[] { 2, 4, 1 }, lesson.GenomicRangeQuery("CAGCCTA", new int[] { 2,5,0 }, new int[] { 4,5,6 }));
+            CollectionAssert.AreEqual(new int[] { 2, 4, 1 }, lesson.GenomicRangeQuery2("CAGCCTA", new int[] { 2,5,0 }, new int[] { 4,5,6 }));
+            CollectionAssert.AreEqual(new int[] { 2, 4, 1 }, lesson.GenomicRangeQuery3("CAGCCTA", new int[] { 2,5,0 }, new int[] { 4,5,6 }));
+        }
 
     }
 }
