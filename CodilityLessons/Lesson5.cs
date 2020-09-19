@@ -114,6 +114,19 @@ namespace CodilityLessons
 
             return r;
         }
+        private int NucleotToFactor(char c)
+        {
+            if (c == 'A')
+                return 1;
+            else if (c == 'C')
+                return 2;
+            else if (c == 'G')
+                return 3;
+            else if (c == 'T')
+                return 4;
+            else
+                return -1;
+        }
 
         public int MinAvgTwoSlice(int[] A)
         {
@@ -154,19 +167,22 @@ namespace CodilityLessons
                 return minPosition;
         }
 
-
-        private int NucleotToFactor(char c)
+        public int PassingCars(int[] A)
         {
-            if (c == 'A')
-                return 1;
-            else if (c == 'C')
-                return 2;
-            else if (c == 'G')
-                return 3;
-            else if (c == 'T')
-                return 4;
-            else
-                return -1;
+            int numberOfEast = 0;
+            int passing = 0;
+            for(int i = 0; i < A.Length; i++)
+            {
+                if (A[i] == 0)
+                    numberOfEast++;
+                else
+                    passing += numberOfEast;
+
+                if (passing > 1000000000)
+                    return -1;
+            }
+
+            return passing;
         }
     }
 }
