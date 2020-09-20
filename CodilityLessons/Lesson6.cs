@@ -40,5 +40,49 @@ namespace CodilityLessons
 
             return r;
         }
+
+        public int MaxProductOfThree(int[] A)
+        {
+            int max = int.MinValue;
+            int v;
+
+            if (A.Length > 6)
+            {
+                Array.Sort(A);
+                int[] Ar = new int[] { A[0], A[1], A[2], A[A.Length - 3], A[A.Length - 2], A[A.Length - 1] };
+
+                for (int i = 0; i < Ar.Length; i++)
+                {
+                    for (int j = i + 1; j < Ar.Length; j++)
+                    {
+                        for (int k = j + 1; k < Ar.Length; k++)
+                        {
+                            v = Ar[i] * Ar[j] * Ar[k];
+                            if (v > max)
+                                max = v;
+                        }
+                    }
+                }
+            }
+            else
+            {
+
+                for (int i = 0; i < A.Length; i++)
+                {
+                    for (int j = i + 1; j < A.Length; j++)
+                    {
+                        for (int k = j + 1; k < A.Length; k++)
+                        {
+                            v = A[i] * A[j] * A[k];
+                            if (v > max)
+                                max = v;
+                        }
+                    }
+                }
+
+            }
+
+            return max;
+        }
     }
 }
