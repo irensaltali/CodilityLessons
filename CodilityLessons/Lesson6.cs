@@ -46,10 +46,10 @@ namespace CodilityLessons
             int max = int.MinValue;
             int v;
 
-            if (A.Length > 6)
+            if (A.Length > 5)
             {
                 Array.Sort(A);
-                int[] Ar = new int[] { A[0], A[1], A[2], A[A.Length - 3], A[A.Length - 2], A[A.Length - 1] };
+                int[] Ar = new int[] { A[0], A[1], A[A.Length - 3], A[A.Length - 2], A[A.Length - 1] };
 
                 for (int i = 0; i < Ar.Length; i++)
                 {
@@ -83,6 +83,53 @@ namespace CodilityLessons
             }
 
             return max;
+        }
+
+        public int NumberOfDiscIntersections(int[] A)
+        {
+            if (A.Length < 2)
+                return 0;
+
+            long[] starts = new long[A.Length];
+            long[] ends = new long[A.Length];
+
+
+            for (int i = 0; i < A.Length; i++)
+            {
+                starts[i] = i - A[i];
+                ends[i] = (long)i + A[i];
+            }
+
+            Array.Sort(starts);
+            Array.Sort(ends);
+
+            long startsIndex = 0;
+            long endsIndex = 0;
+            long index = starts[0];
+            long discCount = 0;
+            long intersection = 0;
+            while (index <= ends[ends.Length - 1])
+            {
+                while (startsIndex < starts.Length && starts[startsIndex] == index)
+                {
+                    intersection += discCount;
+                    discCount++;
+                    startsIndex++;
+                }
+
+                while (endsIndex < ends.Length && ends[endsIndex] == index)
+                {
+                    discCount--;
+                    endsIndex++;
+                }
+
+                index = Math.Min(startsIndex < starts.Length ? starts[startsIndex] : long.MaxValue, endsIndex < ends.Length ? ends[endsIndex] : long.MaxValue);
+
+                if (intersection > 10000000)
+                    return -1;
+            }
+
+            return (int)intersection;
         }
     }
 }
